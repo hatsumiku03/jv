@@ -1,12 +1,12 @@
-const number1 = 15;
-const number2 = 26;
-const total12 = number1 + number2;
+let number1 = 15;
+let number2 = 16;
+let total = number1 + number2;
 
-const variables = [number1+"+"+number2, total12, "Mr Babu"];
+const numbers = [number1 +' '+'+'+' '+number2, , "Mr Babu"];
 
 let loop = "";
-for (let i = 0; i < variables.length; i++) {
-   loop =+ alert(names[i]);
+for (let i = 0; i < numbers.length; i++) {
+   loop += "   <li>" + numbers[i] + "</li>";
 }
 
-document.getElementById("cloop").innerHTML;
+document.getElementById("cloop").innerHTML = loop;
