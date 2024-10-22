@@ -1,8 +1,8 @@
 function calcularLetraDni(dni) {
-    let cadena = "TRWAGMYFPDXBNJZSQVHLCKET";
+    let letter = "TRWAGMYFPDXBNJZSQVHLCKET";
     dni = parseInt(dni);
-    let posicion = dni % (cadena.length - 1);
-    return alert(cadena[posicion]);
+    let position = dni % (letter.length - 1);
+    return alert(letter[position]);
 }
 
 document.getElementById('calcular').addEventListener('click', function() {
