@@ -1,11 +1,14 @@
-function calcularLetraDni(dni) {
-    let letter = "TRWAGMYFPDXBNJZSQVHLCKET";
-    dni = parseInt(dni);
-    let position = dni % (letter.length - 1);
-    return alert(letter[position]);
+function getDNInumber(dni) {
+    let word = "TRWAGMYFPDXBNJZSQVHLCKET";
+    let position = dni % (word.length - 1);
+    return alert(word[position]);
 }
 
-document.getElementById('calcular').addEventListener('click', function() {
+document.getElementById('calc').addEventListener('click', function() {
     let dni = document.getElementById('dni');
-    let letra = calcularLetraDni(dni.value);
-})  
+    try{
+        let word = getDNInumber(dni.value);
+    }catch(err){
+        alert('Somenthing went wrong in the code and you didnt get the number of the DNI :(')
+    }
+}) 
