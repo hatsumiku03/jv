@@ -4,9 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate client budget</title>
+    <style>
+        table {
+          border-collapse: collapse;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
 </head>
 <body>
 
+        <form name="form">
+                <h3>Processors:</h3>
+                <input type="radio" name="pro" value="300" checked/>Intel i7 (300€)<br><br>
+                <input type="radio" name="pro" value="200"/>AMD Ryzen 5 (200€)<br><br>
+                <input type="radio" name="pro" value="250"/>ARM Cortex-A76 (250€)<br><br>
+            
+                <h3>Graphic Card:</h3>
+                <input type="radio" name="gp" value="400" checked/>Nvidia GTX 1660 (400€)<br><br>
+                <input type="radio" name="gp" value="600"/>Nvidia RTX 3060 (600€)<br><br>
+                <input type="radio" name="gp" value="500"/>AMD Radeon RX 5700 (500€)<br><br>
+            
+                <h3>Box:</h3>
+                <input type="radio" name="box" value="50" checked/>NZXT H510 (50€)<br><br>
+                <input type="radio" name="box" value="100"/>Corsair 275R (100€)<br><br>
+                <input type="radio" name="box" value="80"/>Fractal Design Meshify C (80€)<br><br>
+            
+                <h3>Refrigeration:</h3>
+                <input type="radio" name="refr" value="80" checked/>Cooler Master Hyper 212 (80€)<br><br>
+                <input type="radio" name="refr" value="150"/>NZXT Kraken X62 (150€)<br><br>
+                <input type="radio" name="refr" value="120"/>Corsair H100i (120€)<br><br>
+            
+                <h3>Monitor:</h3>
+                <input type="radio" name="moni" value="150" checked/>Dell 24" (150€)<br><br>
+                <input type="radio" name="moni" value="300"/>LG 27" 4K (300€)<br><br>
+                <input type="radio" name="moni" value="200"/>ASUS 27" 144Hz (200€)<br><br>
+            
+                <input type="button" value="Submit" id="calc">
+            </form>
+    
     <script src="script.js"></script>
+
+    <div id="cost"></div>
 </body>
 </html>
