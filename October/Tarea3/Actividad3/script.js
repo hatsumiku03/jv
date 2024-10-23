@@ -6,6 +6,20 @@ let library = [
     { title: "Moby-Dick", year: 1851, isbn: "978-1503280786", author: "Herman Melville" }
 ];
 
+var bookList = document.getElementById('booksTable');
 
+let tableContent = ``
 
-document.getElementById('booksTable').innerHTML;
+for (const item of library) {
+   tableContent += `
+    <tr>
+      <td>${item.title}</td>
+      <td>${item.year}</td>
+      <td>${item.isbn}</td>
+      <td>${item.author}</td>
+    </td>
+  
+  `
+}
+
+bookList.innerHTML += tableContent
