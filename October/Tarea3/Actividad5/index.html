@@ -9,18 +9,27 @@
           font-size: 20px; 
           line-height: 200px; 
           text-align: center; 
+          align-items: center;
+          display: grid;
         } 
         .circle { 
           transition-property: width, height; 
           transition-duration: 2s; 
           position: fixed; 
           transform: translateX(-50%) translateY(-50%); 
-          background-color: red; 
+          background-color: rgb(81, 111, 129); 
           border-radius: 50%; 
+        }
+        div.rock>div.message-ball{
+          margin: auto;
+          width: 60%;
+          padding: 10px;
+          color: white;
         }
     </style>
 </head>
 <body>
     <button onclick="go()">Click here ;3</button>
+    <script src="script.js"></script>
 </body>
 </html>
