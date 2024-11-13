@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4 - Jose</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        #field {
+            background: url(field.svg);
+            width: 800px;
+            height: 500px;
+            float: left;
+        }
+        /* heroes and the ball (dragables) */
+        .hero {
+            background: url(https://js.cx/drag-heroes/heroes.png);
+            width: 130px;
+            height: 128px;
+            float: left;
+        }
+        #hero1 {
+            background-position: 0 0;
+        }
+        #hero2 {
+            background-position: 0 -128px;
+        }
+        #hero3 {
+            background-position: -120px 0;
+        }
+        #hero4 {
+            background-position: -125px -128px;
+        }
+        #hero5 {
+            background-position: -248px -128px;
+        }
+        #hero6 {
+            background-position: -244px 0;
+        }
+        .draggable {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Ubica los superhéroes por el campo.</h2>
+
+    <p>Los superhéroes y ls pelota son elementos con la clase "draggable". Haz que sean realmente arrastrables.</p>
+    <p>Importante: limita el arrastre a la ventana. Si el arrastrable alcanza el borde inferior o superior de la ventana, la pagina debe desplazarse para permitir seguir arrasrtrando.</p>
+    <p>Si en tu monitor cabe el documento entero, haz la ventana del navegador más pequeña para que aparezca la barra de desplazamiento vertical y así puedas probarlo.</p>
+    <p>En esta tarea es suficiente manejar solo el desplazamiento vertical. No suele usarse el desplazamiento horizontal, y el ma-nejo es similar si se necesita.</p>
+    <p>Y algo más: los héroes nunca pueden dejar la página. Si alcanzan el borde del documento, no pueden arrastrarse fuera de él.</p>
+    <div id="field">
+    </div>
+
+    <div class="hero draggable" id="hero1"></div>
+    <div class="hero draggable" id="hero2"></div>
+    <div class="hero draggable" id="hero3"></div>
+    <div class="hero draggable" id="hero4"></div>
+    <div class="hero draggable" id="hero5"></div>
+    <div class="hero draggable" id="hero6"></div>
+    <img src="https://en.js.cx/clipart/ball.svg" class="draggable">
+    <div style="clear:both"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
