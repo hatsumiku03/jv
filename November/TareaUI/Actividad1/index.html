@@ -4,10 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise 1 - Jose</title>
+    <style>
+        .hiddenTheSubmenus {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <button id="btn-magic">Magic object</button>
+    <button id="btn-pulsador">Push button</button>
 
-    
+    <div>
+        <button id="btn-movies">Movies</button>
+        <div id="movies-submenu" class="hiddenTheSubmenus">
+            <ul>
+                <li>Morbius</li>
+                <li>Dragon Ball Bojack</li>
+                <li>Minecraft: Movie</li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <button id="btn-series">Series</button>
+        <div id="series-submenu" class="hiddenTheSubmenus">
+            <ul>
+                <li>Inazuma Eleven</li>
+                <li>Un Show Más</li>
+                <li>Phineas y Ferb</li>
+            </ul>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
