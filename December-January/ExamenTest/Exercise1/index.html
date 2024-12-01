@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1 - Jose</title>
+    <style>
+        .form{
+            display: flex;
+            flex-direction: column;
+            margin: 5px;
+            width: fit-content;
+        }
+
+        .btn{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="getUsersValues(event)">
+        <div class="form">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name">
+
+            <label for="surname">Apellidos:</label>
+            <input type="text" id="surname">
+
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni">
+
+            <label for="phone">Teléfono:</label>
+            <input type="text" id="phone">
+
+            <label for="observation">Observaciones:</label>
+            <input type="text" id="observation">   
+
+            <button type="submit" class="btn">Enviar</button>
+        </div>
+    </form>
+
+    <div id="users"></div>
+    <script src="script.js"></script>
+</body>
+</html>
