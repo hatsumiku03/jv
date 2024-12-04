@@ -1,4 +1,4 @@
-let userArray = [];
+let userArray  = [];
 
 function getUsersValues(e){
     e.preventDefault();
@@ -9,37 +9,38 @@ function getUsersValues(e){
     let phone = document.getElementById('phone').value;
     let observation = document.getElementById('observation').value;
 
-    let userData = {
+    let user = {
         name,
         surname,
         dni,
         phone,
         observation
-    }
-
-    userArray.push(userData);
+    };
+    userArray.push(user);
     showUsers();
 }
 
 function showUsers(){
-    let display = document.getElementById('users');
+    display = document.getElementById('users');
     display.innerHTML = '';
-
-    userArray.forEach((value, id) => {
-        let individualUser = document.createElement('div');
-        individualUser.innerHTML = `
-            <p>Nombre: ${value.name}</p>
-            <p>Apellidos: ${value.surname}</p>
-            <p>DNI: ${value.dni}</p>
-            <p>Teléfono: ${value.phone}</p>
-            <p>Observaciones: ${value.observation}</p>
-            <button onclick="deleteUser(${id})">Eliminar</button><hr>`;
-
-    display.appendChild(individualUser);
+    
+    userArray.forEach((value, key) => {
+        userDiv = document.createElement('div');
+        userDiv.innerHTML = `
+        <ul>
+            <li>Nombre: ${value.name}</li>
+            <li>Apellidos: ${value.surname}</li>
+            <li>DNI: ${value.dni}</li>
+            <li>Teléfono: ${value.phone}</li>
+            <li>Observaciones: ${value.observation}</li>
+            <button onclick="deleteUser(${key})">Borrar</button>
+        </ul>
+        `;
+        display.appendChild(userDiv);
     });
 }
 
-function deleteUser(id){
-    userArray.splice(id, 1);
+function deleteUser($id){
+    userArray.splice($id, 1);
     showUsers();
 }

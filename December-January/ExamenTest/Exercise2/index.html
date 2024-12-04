@@ -4,6 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise 2 - Jose</title>
+    <style>
+        body{
+            background-color: rgb(159, 159, 159);
+        }
+        .itemsContainer{
+            display: flex;
+            flex-direction: row;
+            margin: 20px;
+        }
+        #colorKey{
+            background-color: rgb(198, 39, 39);
+            border-radius: 50%;
+            height: 5rem;
+            margin: 20px;
+            width: 5rem;
+        }
+        #backgroundKey{
+            background-color: rgb(79, 188, 178);
+            border-radius: 50%;
+            height: 5rem;
+            margin: 20px;
+            width: 5rem;
+        }
+        #messageKey{
+            background-color: rgb(0, 0, 0);
+            border-radius: 50%;
+            height: 5rem;
+            margin: 20px;
+            width: 5rem;
+        }
+        #resetKey{
+            background-color: rgb(232, 232, 232);
+            border-radius: 50%;
+            height: 5rem;
+            margin: 20px;
+            width: 5rem;
+        }
+    </style>
 </head>
 <body>
     <!-- º Crear: º
@@ -14,6 +52,19 @@
                 ^ Mostrar un mensaje
                 ^ Resetear el valor de el body y color si se han cambiar
     -->
+    <h2>Interactua con toda la web</h2>
+
+    <!-- <div id="god" draggable="true">Arrastrame</div> -->
+    <div class="itemsContainer">
+            <!-- <img src="koku.png" id="god" width="50px"> -->
+            <p draggable="true">Arrastrame perro</p>
+            <div id="colorKey"></div>
+            <div id="backgroundKey"></div>
+            <div id="messageKey"></div>
+            <div id="resetKey"></div>
+        </div>
+
+
     <script src="script.js"></script>
 </body>
 </html>
