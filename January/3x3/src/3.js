@@ -14,3 +14,5 @@ export function Square({value, onClick}) {
         </div>
     );
 }
+
+// https://es.react.dev/learn/tutorial-tic-tac-toe#
