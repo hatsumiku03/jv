@@ -1,54 +1,60 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-export default function TaskList({tasks, onChangeTasks, onDeleteTasks}) {
+export default function TaskList({tasks, onChangeTask, onDeleteTask}) {
     return (
-        <>
-            <ul>
-                {tasks.map((task, index) => (
+        <ul>
+            {tasks.map(task => (
                 <li key={task.id}>
-                    
-                    <Task task={task} 
-                    onChange={onChangeTasks}
-                    onDelete={onDeleteTasks} 
+                    <Task
+                        task={task}
+                        onChange={onChangeTask}
+                        onDelete={onDeleteTask}
                     />
                 </li>
-                ))}
-            </ul>
-        </>
+            ))}
+        </ul>
     );
 }
 
-function Task({task, onChange, onDelete}) {
+function Task ({task, onChange, onDelete}) {
     const [isEditing, setIsEditing] = useState(false);
     let taskContent;
-    if(isEditing){
+    if (isEditing) {
         taskContent = (
             <>
-                <input className='text-black' value={task.text}
-                onChange={e => {
-                    onChange({...task, text: e.target.value});
-            }}/>
-                <button onClick={() => setIsEditing(false)}>Guardar</button>
+                <input
+                    value={task.text}
+                    onChange={e => {
+                        onChange({...task, text: e.target.value});
+                }}/>
+                <button onClick={() => setIsEditing(false)}>
+                    Guardar
+                </button>
             </>
-        )
-    }else {
+        );
+    } else {
         taskContent = (
             <>
                 {task.text}
-                <button onClick={() => setIsEditing(true)}>Editar</button>
-                <button onClick={() => onDelete(task.id)}>Eliminar</button>
+                <button onClick={() => setIsEditing(true)}>
+                    Editar
+                </button>
             </>
         );
     }
     return (
         <label>
-            <input type='checkbox'
-            checked={task.done}
-            onChange={e => {
-                onChange({...task, done: e.target.checked});
-            }} />
+            <input
+                type="checkbox"
+                checked={task.done}
+                onChange={e => {
+                    onChange({...task, done: e.target.checked});
+                }}
+            />
             {taskContent}
-            <button onClick={() => onDelete(task.id)}>Eliminar</button>
+            <button onClick={() => onDelete(task.id)}>
+                Eliminar
+            </button>
         </label>
     );
-}   
+}
