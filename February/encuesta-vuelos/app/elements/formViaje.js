@@ -33,7 +33,7 @@ export default function FormViaje({ data }) {
 
             if (response.ok) {
                 localStorage.setItem('msg', 'Gracias por votar <3');
-                window.location.href = '/votes';
+                window.location.href = '/votos';
             }
         } catch (error) {
             setError('Error al enviar el voto QwQ');
