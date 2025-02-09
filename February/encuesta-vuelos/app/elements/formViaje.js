@@ -32,7 +32,8 @@ export default function FormViaje({ data }) {
             const result = await response.json();
 
             if (response.ok) {
-                window.location.href = result.redirect;
+                localStorage.setItem('msg', 'Gracias por votar <3');
+                window.location.href = '/votes';
             }
         } catch (error) {
             setError('Error al enviar el voto QwQ');
