@@ -5,6 +5,7 @@ import FormViaje from "./elements/formViaje";
 
 export default async function Home() {
   const destinations = db.prepare('SELECT * FROM destinations').all();
+  
   return (
     <div>
         <div className="text-center mt-5">
