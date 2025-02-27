@@ -1,4 +1,5 @@
 import React from "react";
+import Home from "../page";
 
 export default function TrainerDisplay({ trainer }) {
     if (!trainer) return null;
@@ -10,7 +11,7 @@ export default function TrainerDisplay({ trainer }) {
 
     return (
         <div className="fixed top-0 right-0 m-4">
-            <img src={trainerGifs[trainer]} alt={trainer} width={50} height={50} />
+            <img src={trainerGifs[trainer]} alt={trainer} width={50} height={50}/>
         </div>
     );
 }
