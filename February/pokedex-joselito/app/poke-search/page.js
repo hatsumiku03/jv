@@ -24,9 +24,8 @@ export default function PokeSearch() {
     })
 
     // Para setear el evento de captura a la hora de mandarlo por el form
-    // ! Arreglar con el CatchDisplay
     function eventCapturica(){
-      setCatchedMons(...catchedMons, pokemon.name);
+      setCatchedMons(catchedMons =>[...catchedMons, pokemon]);
     }
 
     return (
@@ -72,5 +71,4 @@ export default function PokeSearch() {
 
       </div>
     )
-
 }
