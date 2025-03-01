@@ -10,23 +10,34 @@ export default function PokeSearch() {
     const [search, setSearch] = useState("");
     const [catchedMons, setCatchedMons] = useState([]);
 
+
     useEffect(() =>{
       if(search){
         fetch(`https://pokeapi.co/api/v2/pokemon/${search}`)
           .then(response => response.json())
           .then(data => setPokemon(data))
           .catch(gerror => setPokemon(null));
-      }
+        }
       else{
         setSearch("");
         setPokemon(null);
       }
     })
 
+
+    useEffect(() => {
+      const savedMons = JSON.parse(localStorage.getItem("catchedMons")) || [];
+      setCatchedMons(savedMons);
+  }, []);
+  
     // Para setear el evento de captura a la hora de mandarlo por el form
-    function eventCapturica(){
-      setCatchedMons(catchedMons =>[...catchedMons, pokemon]);
-    }
+    function eventCapturica() {
+      setCatchedMons(catchedMons => {
+          const updatedMons = [...catchedMons, pokemon];
+          localStorage.setItem("catchedMons", JSON.stringify(updatedMons));
+          return updatedMons;
+      });
+  }
 
     return (
       <div>
@@ -56,7 +67,6 @@ export default function PokeSearch() {
               </div>
 
               {/* Display y form para capturar a los bichos q busques */}
-                {/* ! Arreglar */}
               <div>
                 {pokemon && <CatchAllEm pokemon={pokemon.name} capturando={eventCapturica}/>}
               </div>
@@ -66,7 +76,6 @@ export default function PokeSearch() {
         </div>
 
         {/* Lista de digimamones capturados */}
-          {/* ! Hay que arreglar esto, no funciona, me dice que el map no existe xD */}
         <CatchDisplay pokemonCapturaos={catchedMons}/>
 
       </div>
