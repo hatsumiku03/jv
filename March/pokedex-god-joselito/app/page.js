@@ -1,20 +1,29 @@
 "use client";
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useReducer, createContext } from "react";
 import useFetch from "./dataFetch/logic";
 import Catch from "./ui/catch";
 import PokemonList from "./ui/pokemonList";
+import { PokemonProvider } from "./context/sharePokemonForCatch";
+import reducer from "./context/sharePokemonForCatch";
+
+export const pokecontext = createContext();
+const initialState = {
+  pokemones: []
+};
 
 export default function Home() {
   const search = useRef(null);
   const [trueSearch, setTrueSearch] = useState("");
   const { pokemonData, error } = useFetch(trueSearch);
+  const {state,dispatch} = useReducer(reducer, initialState);
 
   function searchPokemon(){
     setTrueSearch(search.current.value);
   }
 
   return (
+    <pokecontext.Provider value={{state, dispatch}}>
     <div className="flex flex-col items-center justify-center mt-5">
         <div> 
           <h1>Pokedex de Joselito</h1>
@@ -54,10 +63,12 @@ export default function Home() {
           {error && <p>{error}</p>}
 
           {/* Botoncico con la lógica de atrapar */}
-            {pokemonData && 
-            trueSearch !== "" && 
-            !error && 
-            <Catch pokemon={pokemonData}/>}
+            <div>
+              {pokemonData &&
+              trueSearch !== "" &&
+              !error &&
+              <Catch pokemon={pokemonData}/>}
+            </div>
 
         </div>
         {pokemonData && <PokemonList/>}
@@ -65,5 +76,6 @@ export default function Home() {
 
 
     </div>
+    </pokecontext.Provider>
   );
 }
