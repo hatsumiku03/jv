@@ -1,8 +1,9 @@
 "use client"
 import { createContext, useReducer, useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
-  caughtPokemons: []
+  PC: []
 };
 
 const reducer = (state, action) => {
@@ -10,19 +11,19 @@ const reducer = (state, action) => {
     case "initialize":
         return {
           ...state,
-          caughtPokemons: action.payload
+          PC: action.payload
         };
     
     case "catch":
       return {
         ...state,
-        caughtPokemons: [...state.caughtPokemons, action.payload]
+        PC: [...state.PC, {...action.payload, idUnique: uuidv4()}]
       };
       
     case "release":
         return {
             ...state,
-            caughtPokemons: state.caughtPokemons.filter(pokemon => pokemon.name !== action.payload.name)
+            PC: state.PC.filter(pokemon => pokemon.idUnique !== action.payload.idUnique)
         };
     default:
       return state;
