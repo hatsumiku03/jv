@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
 import { PokemonContext } from "../context/sharePokemonForCatch";
-import { v4 as uuidv4 } from 'uuid';
 
 const PokemonList = () => {
   const { state, dispatch } = useContext(PokemonContext);
