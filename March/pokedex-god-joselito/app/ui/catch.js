@@ -1,27 +1,14 @@
-import {useContext, useReducer, useRef } from 'react';
+import { useContext } from "react";
+import { PokemonContext } from "../context/sharePokemonForCatch";
 
 const Catch = ({ pokemon }) => {
+  const { dispatch } = useContext(PokemonContext);
 
-    const catchRef = useRef(null);
-    const { state, dispatch } = useContext(PokemonContext);
+  const catchPokemon = () => {
+    dispatch({ type: "catch", payload: pokemon });
+  };
 
-    const handleCatch = () => {
-        if (catchRef.current) {
-            console.log(`Capturaste a ${pokemon.name}`);
-        }
-    };
-
-    return (
-      <div>
-        <button 
-          className="cursor-pointer bg-gray-300 hover:bg-gray-400" 
-          onClick={handleCatch} 
-          ref={catchRef}
-        >
-          Atrapar
-        </button>
-      </div>
-    );
-}
+  return <button className="hover:bg-gray-400 cursor-pointer" onClick={catchPokemon}>Atrapar</button>;
+};
 
 export default Catch;
