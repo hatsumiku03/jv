@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState} from "react";
 
-
+// | Hook personalizao, useEffect bien sencillico que luego se utiliza en la página principal
 const useFetch = (pokemonName) => {
     const [error, setError] = useState("");
     const [pokemonData, setPokemonData] = useState([]);

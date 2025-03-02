@@ -28,7 +28,7 @@ export default function Home() {
   const {state,dispatch} = useContext(PokemonContext);
   
 
-    // | Preparar toda la parafernalia con el useContext para pasarle a catch y pokemonList cosicas
+    // | La vista de lo q se verá al user
       return(
         <div className="flex flex-col items-center justify-center mt-5">
             <div> 
