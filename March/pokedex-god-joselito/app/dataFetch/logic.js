@@ -10,9 +10,6 @@ const useFetch = (pokemonName) => {
       if(pokemonName){
         fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
           .then((response) => {
-            if(!response.ok){
-              console.log("Pokemon no encontrado");
-            }
             return response.json()
           })
           .then((data) => {
@@ -21,7 +18,7 @@ const useFetch = (pokemonName) => {
           })
           .catch((error) => {
             setPokemonData(null);
-            setError("Pon bien el nombre del pokemon");
+            setError("Pon bien el nombre del nexomon");
           });
       }
     }, [pokemonName]);

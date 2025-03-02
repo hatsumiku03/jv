@@ -4,21 +4,31 @@ import { useState, useRef, useContext } from "react";
 import useFetch from "./dataFetch/logic";
 import Catch from "./ui/catch";
 import PokemonList from "./ui/pokemonList";
-import { PokemonProvider, PokemonContext } from "./context/sharePokemonForCatch";
+import { PokemonContext } from "./context/sharePokemonForCatch";
 
 export default function Home() {
+  // | Importante, creo que acá podría omitir fortísimo el trueSearch, lo estaba
+  // | usando para que no se me hiciera fetch cada vez que se escribía una letra
+  // | pero creo que con el useEffect que tengo en el useFetch.js ya no es necesario
+  // º Me dio pereza eliminarlo xD
+
   const search = useRef(null);
   const [trueSearch, setTrueSearch] = useState("");
   const { pokemonData, error } = useFetch(trueSearch);
   
+  // | Definir la búsqueda
   function searchPokemon(){
     setTrueSearch(search.current.value);
   }
   
+  // | Acá se usa el useContext para poder pasarle a los componetnes de captura y mostrar los bichos
+  // | Las variables que uso acá xD
+  // º Esto es mágia negra tío, como funciona esto solo definiendo el sharePokemonForCatch.js
+  // º que en el pokemon provider le paso el children y ya puedo usarlo en cualquier componente, sigo creyendo el el duende mágico de mi ordenador con una rueda de hamster haciendo correrlo, y eso que ya he abierto 3 veces mi ordenador y no hay nada dentro
   const {state,dispatch} = useContext(PokemonContext);
   
 
-    // Preparar toda la parafernalia con el useContext para pasarle a catch y pokemonList cosicas
+    // | Preparar toda la parafernalia con el useContext para pasarle a catch y pokemonList cosicas
       return(
         <div className="flex flex-col items-center justify-center mt-5">
             <div> 
@@ -67,10 +77,13 @@ export default function Home() {
                 </div>
     
             </div>
-            <div className="mt-5">{pokemonData && <PokemonList/>}</div>
+            
+            {/* Mostrar la listica de pokemon capturados */}
+            <div className="mt-5">
+              {pokemonData && <PokemonList/>}
+            </div>
           </div>
-    
-    
+          
         </div>
       );
     };
